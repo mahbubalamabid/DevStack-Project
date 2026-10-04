@@ -43,7 +43,41 @@ const TechnologySection = () => {
                       className="w-7 h-7 object-contain"
                     />
 
-                    <span className="text-[9px] px-2 py-1 rounded-full bg-[#F0F9FF] text-[#0EA5E9]">
+                    <span
+                      className={`text-[9px] px-2 py-1 rounded-full ${
+                        technology.badge === "Popular"
+                          ? "bg-[#EFF6FF] text-[#0EA5E9]"
+                          : technology.badge === "Versatile"
+                            ? "bg-[#ECFDF5] text-[#10B981]"
+                            : technology.badge === "Fast"
+                              ? "bg-[#FFF7ED] text-[#F97316]"
+                              : technology.badge === "Standard"
+                                ? "bg-[#ECFDF5] text-[#10B981]"
+                                : technology.badge === "Top SQL"
+                                  ? "bg-[#EFF6FF] text-[#2563EB]"
+                                  : technology.badge === "Cache"
+                                    ? "bg-[#FEF2F2] text-[#EF4444]"
+                                    : technology.badge === "Ubiquitous"
+                                      ? "bg-[#FFFBEB] text-[#F59E0B]"
+                                      : technology.badge === "Essential"
+                                        ? "bg-[#EFF6FF] text-[#0EA5E9]"
+                                        : technology.badge === "Robust"
+                                          ? "bg-[#EFF6FF] text-[#0284C7]"
+                                          : technology.badge === "Modern"
+                                            ? "bg-[#ECFEFF] text-[#06B6D4]"
+                                            : technology.badge ===
+                                                "Utility-First"
+                                              ? "bg-[#F0FDFA] text-[#0D9488]"
+                                              : technology.badge === "Minimal"
+                                                ? "bg-[#F5F3FF] text-[#7C3AED]"
+                                                : technology.badge === "NoSQL"
+                                                  ? "bg-[#F0FDF4] text-[#16A34A]"
+                                                  : technology.badge ===
+                                                      "Containers"
+                                                    ? "bg-[#EEF2FF] text-[#6366F1]"
+                                                    : "bg-[#F1F5F9] text-[#64748B]"
+                      }`}
+                    >
                       {technology.badge}
                     </span>
                   </div>
