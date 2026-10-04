@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const TechnologySection = () => {
   const [technologies, setTechnologies] = useState([]);
+  const [Selectedtechnologies, setSelectedTechnologies] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -13,6 +14,31 @@ const TechnologySection = () => {
 
     fetchData();
   }, []);
+
+  const handleAddToStack = (technology) => {
+    const alreadySelected = Selectedtechnologies.some(
+      (item) => item.id === technology.id,
+    );
+
+    if (alreadySelected) {
+      return;
+    }
+
+    setSelectedTechnologies([...Selectedtechnologies, technology]);
+  };
+
+  const handleRemoveFromStack = (id) => {
+    console.log("Removing ID:", id);
+    const Remainingtechnologies = Selectedtechnologies.filter(
+      (technology) => technology.id !== id,
+    );
+
+    setSelectedTechnologies(Remainingtechnologies);
+  };
+
+  const handleRemoveAll = () => {
+    setSelectedTechnologies([]);
+  };
 
   return (
     <>
@@ -104,7 +130,10 @@ const TechnologySection = () => {
                     </span>
                   </div>
 
-                  <button className="w-full bg-[#0F172A] text-white text-[10px] rounded-[6px] py-2 mt-3">
+                  <button
+                    onClick={() => handleAddToStack(technology)}
+                    className="w-full bg-[#0F172A] text-white text-[10px] rounded-[6px] py-2 mt-3"
+                  >
                     Add to Stack
                   </button>
                 </div>
@@ -113,16 +142,63 @@ const TechnologySection = () => {
           </div>
 
           <div className="col-span-1 h-fit border border-[#E5E7EB] rounded-[12px] p-4">
-            <h2 className="font-bold text-[14px] text-[#0F172A]">Your Stack</h2>
+            <div className="flex items-center justify-between">
+              <h2 className="font-bold text-[14px] text-[#0F172A]">
+                Your Stack
+                <p className="text-[12px] text-[#94A3B8] mt-1">
+                  {Selectedtechnologies.length} Technologies Selected
+                </p>
+              </h2>
+            </div>
 
-            <p className="text-[9px] text-[#94A3B8] mt-1">
-              No technologies selected yet.
-            </p>
-
-            <div className="border border-dashed border-[#E2E8F0] rounded-[8px] h-[70px] flex items-center justify-center mt-3">
-              <p className="text-[9px] text-[#CBD5E1] text-center">
-                Your stack is empty.
+            {Selectedtechnologies.length === 0 && (
+              <p className="text-[12px] text-[#94A3B8] mt-1">
+                No technologies selected yet.
               </p>
+            )}
+
+            <div className="mt-3">
+              {Selectedtechnologies.length === 0 ? (
+                <div className="border border-dashed border-[#E2E8F0] rounded-[8px] h-[70px] flex items-center justify-center">
+                  <p className="text-[12px] text-[#CBD5E1] text-center">
+                    Your stack is empty.
+                  </p>
+                </div>
+              ) : (
+                Selectedtechnologies.map((technology) => (
+                  <div
+                    key={technology.id}
+                    className="flex items-center justify-between border border-[#E2E8F0] rounded-[8px] px-3 py-2 mb-2"
+                  >
+                    <div className="flex items-center gap-2">
+                      <img
+                        src={technology.icon}
+                        alt={technology.name}
+                        className="w-5 h-5 object-contain"
+                      />
+
+                      <span className="text-[13px] font-medium text-[#0F172A]">
+                        {technology.name}
+                      </span>
+                    </div>
+
+                    <button
+                      onClick={() => handleRemoveFromStack(technology.id)}
+                      className="text-[20px] text-[#94A3B8] hover:text-red-500 font-bold"
+                    >
+                      ×
+                    </button>
+                  </div>
+                ))
+              )}
+              {Selectedtechnologies.length > 0 && (
+                <button
+                  onClick={handleRemoveAll}
+                  className="w-full border border-[#FCA5A5] text-[#EF4444] text-[13px] rounded-[6px] py-2 mt-5 font-bold"
+                >
+                  Remove All
+                </button>
+              )}
             </div>
           </div>
         </div>
