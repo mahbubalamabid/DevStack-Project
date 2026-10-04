@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const TechnologySection = () => {
   const [technologies, setTechnologies] = useState([]);
@@ -25,6 +26,8 @@ const TechnologySection = () => {
     }
 
     setSelectedTechnologies([...Selectedtechnologies, technology]);
+
+    toast.success(`${technology.name} added to your stack!`);
   };
 
   const handleRemoveFromStack = (id) => {
