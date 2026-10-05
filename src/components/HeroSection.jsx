@@ -10,7 +10,7 @@ export const heroSection = () => {
           <div >
             <p className="mb-7">
               <span className="text-[#0F172A] text-[34px] sm:text-[42px] lg:text-6xl font-bold">
-                Build Your Ideal
+                Build Your Ideal <br />
               </span>
               <span className="text-[34px] sm:text-[42px] lg:text-6xl font-bold bg-linear-to-r from-[#FF5722] via-[#D81B7E] to-[#7C3AED] bg-clip-text text-transparent">
                 Development Stack
