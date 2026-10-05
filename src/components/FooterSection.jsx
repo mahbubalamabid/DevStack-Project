@@ -1,4 +1,5 @@
 import React from "react";
+import logoText from "../assets/logo-text.png";
 
 const FooterSection = () => {
   return (
@@ -10,7 +11,7 @@ const FooterSection = () => {
 
           <div className="lg:col-span-2 text-center lg:text-left">
             <img
-              src="/src/assets/logo-text.png"
+              src={logoText}
               alt="Dev Stack"
               className="w-[95px] mx-auto lg:mx-0"
             />

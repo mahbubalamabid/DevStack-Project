@@ -7,7 +7,7 @@ export const heroSection = () => {
     <>
       <section className="flex flex-col lg:flex-row justify-between items-center container mx-auto mt-[50px] lg:mt-[96px] px-4">
         <div>
-          <div >
+          <div className="container mx-auto">
             <p className="mb-7">
               <span className="text-[#0F172A] text-[34px] sm:text-[42px] lg:text-6xl font-bold">
                 Build Your Ideal <br />
