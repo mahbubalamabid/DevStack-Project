@@ -56,20 +56,20 @@ const TechnologySection = () => {
 
   return (
     <>
-      <section className="container mx-auto mt-[80px]">
-        <p className="text-[36px] font-bold text-[#0F172A]">
+      <section className="container mx-auto mt-[80px] px-4 lg:px-0">
+        <p className="text-[28px] sm:text-[32px] lg:text-[36px] font-bold text-[#0F172A] text-center lg:text-left">
           Explore the{" "}
           <span className="bg-linear-to-r from-[#f03592] via-[#d81b7de3] to-[#7a53d4d8] bg-clip-text text-transparent">
             Technologies
           </span>
         </p>
 
-        <p className="text-[#64748B]">
+        <p className="text-[#64748B] text-[12px] text-center lg:text-left">
           Pick one technology per category to build your ideal stack.
         </p>
 
-        <div className="grid grid-cols-4 gap-4 mt-8">
-          <div className="col-span-3 grid grid-cols-3 gap-9 w-[1120px]">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mt-8">
+          <div className="col-span-1 lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-9 w-full">
             {loading ? (
               <div className="col-span-3 flex items-center justify-center h-[300px]">
                 <div className="flex flex-col items-center gap-3">
@@ -95,39 +95,38 @@ const TechnologySection = () => {
                       />
 
                       <span
-                        className={`text-[9px] px-2 py-1 rounded-full ${
-                          technology.badge === "Popular"
-                            ? "bg-[#EFF6FF] text-[#0EA5E9]"
-                            : technology.badge === "Versatile"
-                              ? "bg-[#ECFDF5] text-[#10B981]"
-                              : technology.badge === "Fast"
-                                ? "bg-[#FFF7ED] text-[#F97316]"
-                                : technology.badge === "Standard"
-                                  ? "bg-[#ECFDF5] text-[#10B981]"
-                                  : technology.badge === "Top SQL"
-                                    ? "bg-[#EFF6FF] text-[#2563EB]"
-                                    : technology.badge === "Cache"
-                                      ? "bg-[#FEF2F2] text-[#EF4444]"
-                                      : technology.badge === "Ubiquitous"
-                                        ? "bg-[#FFFBEB] text-[#F59E0B]"
-                                        : technology.badge === "Essential"
-                                          ? "bg-[#EFF6FF] text-[#0EA5E9]"
-                                          : technology.badge === "Robust"
-                                            ? "bg-[#EFF6FF] text-[#0284C7]"
-                                            : technology.badge === "Modern"
-                                              ? "bg-[#ECFEFF] text-[#06B6D4]"
-                                              : technology.badge ===
-                                                  "Utility-First"
-                                                ? "bg-[#F0FDFA] text-[#0D9488]"
-                                                : technology.badge === "Minimal"
-                                                  ? "bg-[#F5F3FF] text-[#7C3AED]"
-                                                  : technology.badge === "NoSQL"
-                                                    ? "bg-[#F0FDF4] text-[#16A34A]"
-                                                    : technology.badge ===
-                                                        "Containers"
-                                                      ? "bg-[#EEF2FF] text-[#6366F1]"
-                                                      : "bg-[#F1F5F9] text-[#64748B]"
-                        }`}
+                        className={`text-[9px] px-2 py-1 rounded-full ${technology.badge === "Popular"
+                          ? "bg-[#EFF6FF] text-[#0EA5E9]"
+                          : technology.badge === "Versatile"
+                            ? "bg-[#ECFDF5] text-[#10B981]"
+                            : technology.badge === "Fast"
+                              ? "bg-[#FFF7ED] text-[#F97316]"
+                              : technology.badge === "Standard"
+                                ? "bg-[#ECFDF5] text-[#10B981]"
+                                : technology.badge === "Top SQL"
+                                  ? "bg-[#EFF6FF] text-[#2563EB]"
+                                  : technology.badge === "Cache"
+                                    ? "bg-[#FEF2F2] text-[#EF4444]"
+                                    : technology.badge === "Ubiquitous"
+                                      ? "bg-[#FFFBEB] text-[#F59E0B]"
+                                      : technology.badge === "Essential"
+                                        ? "bg-[#EFF6FF] text-[#0EA5E9]"
+                                        : technology.badge === "Robust"
+                                          ? "bg-[#EFF6FF] text-[#0284C7]"
+                                          : technology.badge === "Modern"
+                                            ? "bg-[#ECFEFF] text-[#06B6D4]"
+                                            : technology.badge ===
+                                              "Utility-First"
+                                              ? "bg-[#F0FDFA] text-[#0D9488]"
+                                              : technology.badge === "Minimal"
+                                                ? "bg-[#F5F3FF] text-[#7C3AED]"
+                                                : technology.badge === "NoSQL"
+                                                  ? "bg-[#F0FDF4] text-[#16A34A]"
+                                                  : technology.badge ===
+                                                    "Containers"
+                                                    ? "bg-[#EEF2FF] text-[#6366F1]"
+                                                    : "bg-[#F1F5F9] text-[#64748B]"
+                          }`}
                       >
                         {technology.badge}
                       </span>

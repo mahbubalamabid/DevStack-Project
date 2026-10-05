@@ -1,16 +1,22 @@
 import React from "react";
+import bannerStack from "../assets/banner-stack.png";
+
 
 export const heroSection = () => {
   return (
     <>
-      <section className="flex justify-between items-center container mx-auto mt-[96px]">
+      <section className="flex flex-col lg:flex-row justify-between items-center container mx-auto mt-[50px] lg:mt-[96px] px-4">
         <div>
-          <div>
+          <div >
             <p className="mb-7">
-              <span className="text-[#0F172A] text-6xl font-bold">Build Your Ideal</span> <br />
-              <span className="text-6xl font-bold bg-linear-to-r from-[#FF5722] via-[#D81B7E] to-[#7C3AED] bg-clip-text text-transparent">Development Stack</span>
+              <span className="text-[#0F172A] text-[34px] sm:text-[42px] lg:text-6xl font-bold">
+                Build Your Ideal
+              </span>
+              <span className="text-[34px] sm:text-[42px] lg:text-6xl font-bold bg-linear-to-r from-[#FF5722] via-[#D81B7E] to-[#7C3AED] bg-clip-text text-transparent">
+                Development Stack
+              </span>
             </p>
-            <p className="text-[#475569] w-[571px] mb-7 text-[18px]">
+            <p className="text-[#475569] w-full max-w-[571px] mb-7 text-[14px] sm:text-[16px] lg:text-[18px] leading-relaxed">
               Explore frontend, backend, database, and tooling options,<br /> compare
               them side by side, and put together the stack that fits your <br /> next
               project.
@@ -26,7 +32,7 @@ export const heroSection = () => {
         </div>
 
         <div>
-          <img className="w-[460px] h-auto" src="/src/assets/banner-stack.png" alt="" />
+          <img src={bannerStack} alt="" />
         </div>
       </section>
     </>
