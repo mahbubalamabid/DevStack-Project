@@ -29,6 +29,7 @@ const TechnologySection = () => {
     );
 
     if (alreadySelected) {
+      toast.warning("Already added!");
       return;
     }
 
@@ -38,16 +39,19 @@ const TechnologySection = () => {
   };
 
   const handleRemoveFromStack = (id) => {
-    console.log("Removing ID:", id);
     const Remainingtechnologies = Selectedtechnologies.filter(
       (technology) => technology.id !== id,
     );
 
     setSelectedTechnologies(Remainingtechnologies);
+
+    toast.info("Technology removed!");
   };
 
   const handleRemoveAll = () => {
     setSelectedTechnologies([]);
+
+    toast.error("All technologies removed!");
   };
 
   return (
